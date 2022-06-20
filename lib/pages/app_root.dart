@@ -17,21 +17,19 @@ class _AppRootState extends State<AppRoot> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('AppName'),
-          actions: [
-            IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
-          ],
-          centerTitle: true,
-          leading: IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
-          elevation: 0.0,
-          backgroundColor: Colors.green,
-        ),
-        bottomNavigationBar: getCustomNavigationBar(),
-        body: tabs[_selectedIndex],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AppName'),
+        actions: [
+          IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
+        ],
+        centerTitle: true,
+        leading: IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
+        elevation: 0.0,
+        backgroundColor: Color.fromRGBO(143, 148, 251, 1),
       ),
+      bottomNavigationBar: getCustomNavigationBar(),
+      body: SafeArea(child: tabs[_selectedIndex]),
     );
   }
 
@@ -57,7 +55,7 @@ class _AppRootState extends State<AppRoot> {
               decoration: index == _selectedIndex
                   ? const BoxDecoration(
                 border:  Border(
-                  bottom: BorderSide(width: 4, color: Colors.green),
+                  bottom: BorderSide(width: 4, color: Color.fromRGBO(143, 148, 251, 1)),
                 ),
                 color: Colors.white,
               )
@@ -66,7 +64,7 @@ class _AppRootState extends State<AppRoot> {
               ),
               child: Icon(
                 activeIcons[index],
-                color: index == _selectedIndex ? Colors.green : Colors.grey,
+                color: index == _selectedIndex ? const Color.fromRGBO(143, 148, 251, 1) : Colors.grey,
               ),
             ),
           );
