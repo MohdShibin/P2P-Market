@@ -11,14 +11,24 @@ class AppRoot extends StatefulWidget {
 class _AppRootState extends State<AppRoot> {
   int _selectedIndex = 0;
   final tabs = [
-    Text("settings"),
-    Text("settings"),
-    Text("settings"),
+    Text("Home"),
+    Text("Sell"),
+    Text("Account"),
   ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text('AppName'),
+          actions: [
+            IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
+          ],
+          centerTitle: true,
+          leading: IconButton(onPressed: (){}, icon: const Icon(Icons.menu)),
+          elevation: 0.0,
+          backgroundColor: Colors.green,
+        ),
         bottomNavigationBar: getCustomNavigationBar(),
         body: tabs[_selectedIndex],
       ),
